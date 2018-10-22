@@ -1,23 +1,17 @@
-import com.sun.xml.internal.ws.developer.MemberSubmissionEndpointReference;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import javax.lang.model.util.Elements;
-import javax.xml.bind.Element;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class TestsMet {
 
     WebDriver driver;
-    WebDriver driverF;
     Random r = new Random();
 
     @BeforeMethod
@@ -27,7 +21,6 @@ public class TestsMet {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
-//        driverF= new FirefoxDriver();
     }
 
     @AfterMethod

@@ -8,9 +8,12 @@ public class TableList {
     private String structure;
     private String country;
     private String city;
-    private String height;
+    private int height;
     private int build;
     private int rank;
+
+    public TableList() {
+    }
 
     public TableList(WebElement tr) {
 
@@ -18,12 +21,12 @@ public class TableList {
         List<WebElement> tds = tr.findElements(By.cssSelector("td"));
         this.country = tds.get(0).getText();
         this.city = tds.get(1).getText();
-        this.height = tds.get(2).getText();
+        this.height = Integer.valueOf(tds.get(2).getText().substring(0,3));
         this.build = Integer.parseInt(tds.get(3).getText());
         this.rank = Integer.parseInt(tds.get(4).getText());
     }
     public void printTable(){
-        System.out.println("Structure "+structure+" in "+country+" in "+city);
+        System.out.println("Structure "+structure+" in "+country+" in "+city+" date: "+build);
     }
 
     public String getStructure() {
@@ -50,11 +53,11 @@ public class TableList {
         this.city = city;
     }
 
-    public String getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
